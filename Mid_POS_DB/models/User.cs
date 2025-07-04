@@ -17,9 +17,9 @@ namespace Mid_POS_DB.models
         public string _sql;
         public void Login(Form form)
         {
-            Database.ConnectionDB();
             try
             {
+                Database.ConnectionDB();
                 this._sql = "select * from tblUser where UserName=@Name and Password=@Password";
                 Database.cmd = new SqlCommand(this._sql, Database.con);
                 Database.cmd.Parameters.AddWithValue("@Name", this.Name);
