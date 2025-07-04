@@ -32,6 +32,7 @@ namespace Mid_POS_DB.models
                 {
                     User.UserId = int.Parse(Database.tbl.Rows[0]["Id"].ToString());
                     Dashboard dashboard = new Dashboard();
+                    dashboard.toolStripStatus.Text = Database.tbl.Rows[0]["UserName"].ToString();
                     dashboard.Show();
                     form.Hide();
                 }
