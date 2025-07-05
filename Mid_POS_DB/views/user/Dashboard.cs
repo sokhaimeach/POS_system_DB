@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Mid_POS_DB.views.user;
 
 namespace Mid_POS_DB.views.user
 {
@@ -104,6 +105,23 @@ namespace Mid_POS_DB.views.user
             }
         }
 
+        private Form activeForm = null;
+
+        private void OpenChildForm(Form ChildForm)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            activeForm = ChildForm;
+            ChildForm.TopLevel = false;
+            ChildForm.FormBorderStyle = FormBorderStyle.None;
+            ChildForm.Dock = DockStyle.Fill;
+            panelChilden.Controls.Add(ChildForm);
+            panelChilden.Tag = ChildForm;
+            ChildForm.Show();
+        }
+
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -116,6 +134,13 @@ namespace Mid_POS_DB.views.user
             this.Close();
             LoginForm loginForm = new LoginForm();
             loginForm.Close();
+        }
+
+        private void roleManagementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RoleForm roleForm = new RoleForm();
+            StatusForm.Text = "Role";
+            OpenChildForm(roleForm);
         }
     }
 }

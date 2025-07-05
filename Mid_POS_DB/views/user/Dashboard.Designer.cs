@@ -39,16 +39,20 @@
             this.toolStripStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.StatusForm = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.labelStatus = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.panelChilden = new System.Windows.Forms.Panel();
+            this.securityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.userManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.roleManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -60,7 +64,8 @@
             this.menuStrip.BackColor = System.Drawing.Color.LightGray;
             this.menuStrip.Font = new System.Drawing.Font("Monospac821 BT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileMenu});
+            this.fileMenu,
+            this.securityToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(1141, 30);
@@ -81,14 +86,14 @@
             // signOutToolStripMenuItem
             // 
             this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
-            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.signOutToolStripMenuItem.Text = "Sign out";
             this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(168, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -129,14 +134,27 @@
             this.panel1.Font = new System.Drawing.Font("Monospac821 BT", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(0, 30);
+            this.panel1.MaximumSize = new System.Drawing.Size(374, 0);
+            this.panel1.MinimumSize = new System.Drawing.Size(80, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(374, 551);
             this.panel1.TabIndex = 4;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Monospac821 BT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(53, 31);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(226, 39);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "System Menu";
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.StatusForm);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.labelStatus);
@@ -148,6 +166,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(767, 93);
             this.panel2.TabIndex = 5;
+            // 
+            // StatusForm
+            // 
+            this.StatusForm.AutoSize = true;
+            this.StatusForm.Font = new System.Drawing.Font("Monospac821 BT", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StatusForm.ForeColor = System.Drawing.Color.Black;
+            this.StatusForm.Location = new System.Drawing.Point(297, 35);
+            this.StatusForm.Name = "StatusForm";
+            this.StatusForm.Size = new System.Drawing.Size(69, 29);
+            this.StatusForm.TabIndex = 6;
+            this.StatusForm.Text = "User";
             // 
             // label1
             // 
@@ -171,16 +200,16 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "system";
             // 
-            // label3
+            // labelStatus
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Monospac821 BT", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label3.Location = new System.Drawing.Point(168, 35);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 29);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Manage /";
+            this.labelStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelStatus.AutoSize = true;
+            this.labelStatus.Font = new System.Drawing.Font("Monospac821 BT", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStatus.Location = new System.Drawing.Point(663, 34);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(83, 29);
+            this.labelStatus.TabIndex = 5;
+            this.labelStatus.Text = "Admin";
             // 
             // label4
             // 
@@ -194,27 +223,16 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Status /";
             // 
-            // labelStatus
+            // label3
             // 
-            this.labelStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelStatus.AutoSize = true;
-            this.labelStatus.Font = new System.Drawing.Font("Monospac821 BT", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStatus.Location = new System.Drawing.Point(663, 34);
-            this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(83, 29);
-            this.labelStatus.TabIndex = 5;
-            this.labelStatus.Text = "Admin";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Monospac821 BT", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(297, 35);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 29);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "User";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Monospac821 BT", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label3.Location = new System.Drawing.Point(168, 35);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(125, 29);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Manage /";
             // 
             // label7
             // 
@@ -228,24 +246,43 @@
             this.label7.TabIndex = 7;
             this.label7.Text = "Control your system with us";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Monospac821 BT", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(53, 31);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(226, 39);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "System Menu";
-            // 
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(374, 123);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 458);
+            this.splitter1.Size = new System.Drawing.Size(10, 458);
             this.splitter1.TabIndex = 6;
             this.splitter1.TabStop = false;
+            // 
+            // panelChilden
+            // 
+            this.panelChilden.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelChilden.Location = new System.Drawing.Point(384, 123);
+            this.panelChilden.Name = "panelChilden";
+            this.panelChilden.Size = new System.Drawing.Size(757, 458);
+            this.panelChilden.TabIndex = 8;
+            // 
+            // securityToolStripMenuItem
+            // 
+            this.securityToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.userManagementToolStripMenuItem,
+            this.roleManagementToolStripMenuItem});
+            this.securityToolStripMenuItem.Name = "securityToolStripMenuItem";
+            this.securityToolStripMenuItem.Size = new System.Drawing.Size(110, 26);
+            this.securityToolStripMenuItem.Text = "Security";
+            // 
+            // userManagementToolStripMenuItem
+            // 
+            this.userManagementToolStripMenuItem.Name = "userManagementToolStripMenuItem";
+            this.userManagementToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
+            this.userManagementToolStripMenuItem.Text = "User management";
+            // 
+            // roleManagementToolStripMenuItem
+            // 
+            this.roleManagementToolStripMenuItem.Name = "roleManagementToolStripMenuItem";
+            this.roleManagementToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
+            this.roleManagementToolStripMenuItem.Text = "Role management";
+            this.roleManagementToolStripMenuItem.Click += new System.EventHandler(this.roleManagementToolStripMenuItem_Click);
             // 
             // Dashboard
             // 
@@ -253,6 +290,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1141, 607);
+            this.Controls.Add(this.panelChilden);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -293,11 +331,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label StatusForm;
         private System.Windows.Forms.Label label7;
         public System.Windows.Forms.Label labelStatus;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Splitter splitter1;
+        private System.Windows.Forms.Panel panelChilden;
+        private System.Windows.Forms.ToolStripMenuItem securityToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem userManagementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem roleManagementToolStripMenuItem;
     }
 }
 
