@@ -16,5 +16,15 @@ namespace Mid_POS_DB.views.user
         {
             InitializeComponent();
         }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
