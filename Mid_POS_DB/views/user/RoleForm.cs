@@ -26,5 +26,23 @@ namespace Mid_POS_DB.views.user
         {
 
         }
+
+        private void txtSearch_Enter(object sender, EventArgs e)
+        {
+            if (txtSearch.Text == "Search role")
+            {
+                txtSearch.Text = string.Empty;
+                txtSearch.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtSearch_Leave(object sender, EventArgs e)
+        {
+            if (txtSearch.Text == string.Empty)
+            {
+                txtSearch.Text = "Search role";
+                txtSearch.ForeColor = Color.DarkGray;
+            }
+        }
     }
 }
