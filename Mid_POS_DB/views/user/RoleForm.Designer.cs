@@ -91,6 +91,7 @@
             this.btnDelete.TabIndex = 15;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -102,6 +103,7 @@
             this.btnUpdate.TabIndex = 14;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnCreate
             // 
@@ -113,6 +115,7 @@
             this.btnCreate.TabIndex = 13;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = false;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // pictureBox1
             // 
@@ -259,9 +262,11 @@
             this.dgRole.Name = "dgRole";
             this.dgRole.ReadOnly = true;
             this.dgRole.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgRole.RowTemplate.Height = 40;
             this.dgRole.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgRole.Size = new System.Drawing.Size(550, 490);
             this.dgRole.TabIndex = 1;
+            this.dgRole.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgRole_CellDoubleClick);
             // 
             // Column1
             // 
@@ -324,6 +329,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "RoleForm";
             this.Text = "RoleForm";
+            this.Load += new System.EventHandler(this.RoleForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

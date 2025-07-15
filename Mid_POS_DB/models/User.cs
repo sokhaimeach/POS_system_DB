@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Mid_POS_DB.models
 {
-    internal class User
+    internal class User : Action
     {
         public string Name { get; set; }
         public string Password { get; set; }
