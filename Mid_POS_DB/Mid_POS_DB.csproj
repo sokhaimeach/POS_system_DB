@@ -71,6 +71,12 @@
     <Compile Include="views\user\RoleForm.Designer.cs">
       <DependentUpon>RoleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\user\UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\user\UserForm.Designer.cs">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="views\user\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -89,6 +95,9 @@
     </Compile>
     <EmbeddedResource Include="views\user\RoleForm.resx">
       <DependentUpon>RoleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\user\UserForm.resx">
+      <DependentUpon>UserForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -142,5 +142,12 @@ namespace Mid_POS_DB.views.user
             StatusForm.Text = "Role";
             OpenChildForm(roleForm);
         }
+
+        private void userManagementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UserForm userForm = new UserForm();
+            StatusForm.Text = "User";
+            OpenChildForm(userForm);
+        }
     }
 }

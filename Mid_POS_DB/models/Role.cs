@@ -14,13 +14,9 @@ namespace Mid_POS_DB.models
         public int Id { get; set; }
         public string Name { get; set; }
         public bool Status { get; set; }
-        public DateTime CreateAt { get; set; }
-        public int CreateBy { get; set; }
-        public DateTime UpdateAt { get; set; }
-        public int UpdateBy { get; set; }
 
-        private string _sql;
-        private int _rowEffected;
+        public string _sql;
+        public int _rowEffected;
         private DataGridViewRow DGV = null;
 
         public override void GetData(DataGridView dg)

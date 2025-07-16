@@ -54,62 +54,62 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.panelChilden = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.button7 = new System.Windows.Forms.Button();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.button8 = new System.Windows.Forms.Button();
             this.panel12 = new System.Windows.Forms.Panel();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.button9 = new System.Windows.Forms.Button();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.button10 = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.button8 = new System.Windows.Forms.Button();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.panelChilden = new System.Windows.Forms.Panel();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -164,6 +164,7 @@
             this.userManagementToolStripMenuItem.Name = "userManagementToolStripMenuItem";
             this.userManagementToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
             this.userManagementToolStripMenuItem.Text = "User management";
+            this.userManagementToolStripMenuItem.Click += new System.EventHandler(this.userManagementToolStripMenuItem_Click);
             // 
             // roleManagementToolStripMenuItem
             // 
@@ -324,6 +325,16 @@
             this.panel4.Size = new System.Drawing.Size(375, 70);
             this.panel4.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(14, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(36, 48);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.SlateGray;
@@ -338,16 +349,6 @@
             this.button1.Text = "User";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(14, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(36, 48);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
             // 
             // panel1
             // 
@@ -373,260 +374,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(374, 768);
             this.panel1.TabIndex = 4;
-            // 
-            // splitter1
-            // 
-            this.splitter1.Location = new System.Drawing.Point(374, 123);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(10, 675);
-            this.splitter1.TabIndex = 6;
-            this.splitter1.TabStop = false;
-            // 
-            // panelChilden
-            // 
-            this.panelChilden.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChilden.Location = new System.Drawing.Point(384, 123);
-            this.panelChilden.Name = "panelChilden";
-            this.panelChilden.Size = new System.Drawing.Size(757, 675);
-            this.panelChilden.TabIndex = 8;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.pictureBox2);
-            this.panel5.Controls.Add(this.button2);
-            this.panel5.Location = new System.Drawing.Point(3, 163);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(375, 70);
-            this.panel5.TabIndex = 12;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(14, 13);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(36, 48);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 11;
-            this.pictureBox2.TabStop = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.SlateGray;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.LightSlateGray;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Monospac821 BT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(66, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(304, 63);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "User";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.pictureBox3);
-            this.panel6.Controls.Add(this.button3);
-            this.panel6.Location = new System.Drawing.Point(3, 303);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(375, 70);
-            this.panel6.TabIndex = 14;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(14, 13);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(36, 48);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 11;
-            this.pictureBox3.TabStop = false;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.SlateGray;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.LightSlateGray;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Monospac821 BT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(66, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(304, 63);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "User";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.pictureBox4);
-            this.panel7.Controls.Add(this.button4);
-            this.panel7.Location = new System.Drawing.Point(3, 233);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(375, 70);
-            this.panel7.TabIndex = 13;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(14, 13);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(36, 48);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 11;
-            this.pictureBox4.TabStop = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.SlateGray;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.LightSlateGray;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Monospac821 BT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(66, 4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(304, 63);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "User";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.pictureBox5);
-            this.panel8.Controls.Add(this.button5);
-            this.panel8.Location = new System.Drawing.Point(3, 583);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(375, 70);
-            this.panel8.TabIndex = 18;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(14, 13);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(36, 48);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 11;
-            this.pictureBox5.TabStop = false;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.SlateGray;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.LightSlateGray;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Monospac821 BT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(66, 4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(304, 63);
-            this.button5.TabIndex = 10;
-            this.button5.Text = "User";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.pictureBox6);
-            this.panel9.Controls.Add(this.button6);
-            this.panel9.Location = new System.Drawing.Point(3, 443);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(375, 70);
-            this.panel9.TabIndex = 16;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(14, 13);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(36, 48);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 11;
-            this.pictureBox6.TabStop = false;
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.SlateGray;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.LightSlateGray;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Monospac821 BT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(66, 4);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(304, 63);
-            this.button6.TabIndex = 10;
-            this.button6.Text = "User";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.UseVisualStyleBackColor = false;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.pictureBox7);
-            this.panel10.Controls.Add(this.button7);
-            this.panel10.Location = new System.Drawing.Point(3, 513);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(375, 70);
-            this.panel10.TabIndex = 17;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(14, 13);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(36, 48);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 11;
-            this.pictureBox7.TabStop = false;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.SlateGray;
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.LightSlateGray;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Monospac821 BT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(66, 4);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(304, 63);
-            this.button7.TabIndex = 10;
-            this.button7.Text = "User";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.UseVisualStyleBackColor = false;
-            // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.pictureBox8);
-            this.panel11.Controls.Add(this.button8);
-            this.panel11.Location = new System.Drawing.Point(3, 373);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(375, 70);
-            this.panel11.TabIndex = 15;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(14, 13);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(36, 48);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 11;
-            this.pictureBox8.TabStop = false;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.SlateGray;
-            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.LightSlateGray;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Monospac821 BT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(66, 4);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(304, 63);
-            this.button8.TabIndex = 10;
-            this.button8.Text = "User";
-            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.UseVisualStyleBackColor = false;
             // 
             // panel12
             // 
@@ -662,6 +409,40 @@
             this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button9.UseVisualStyleBackColor = false;
             // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.pictureBox5);
+            this.panel8.Controls.Add(this.button5);
+            this.panel8.Location = new System.Drawing.Point(3, 583);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(375, 70);
+            this.panel8.TabIndex = 18;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(14, 13);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(36, 48);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 11;
+            this.pictureBox5.TabStop = false;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.SlateGray;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Monospac821 BT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(66, 4);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(304, 63);
+            this.button5.TabIndex = 10;
+            this.button5.Text = "User";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.UseVisualStyleBackColor = false;
+            // 
             // panel13
             // 
             this.panel13.Controls.Add(this.pictureBox10);
@@ -696,6 +477,226 @@
             this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button10.UseVisualStyleBackColor = false;
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.pictureBox3);
+            this.panel6.Controls.Add(this.button3);
+            this.panel6.Location = new System.Drawing.Point(3, 303);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(375, 70);
+            this.panel6.TabIndex = 14;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(14, 13);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(36, 48);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 11;
+            this.pictureBox3.TabStop = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.SlateGray;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Monospac821 BT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(66, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(304, 63);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "User";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.pictureBox6);
+            this.panel9.Controls.Add(this.button6);
+            this.panel9.Location = new System.Drawing.Point(3, 443);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(375, 70);
+            this.panel9.TabIndex = 16;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(14, 13);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(36, 48);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 11;
+            this.pictureBox6.TabStop = false;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.SlateGray;
+            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Monospac821 BT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(66, 4);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(304, 63);
+            this.button6.TabIndex = 10;
+            this.button6.Text = "User";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.pictureBox2);
+            this.panel5.Controls.Add(this.button2);
+            this.panel5.Location = new System.Drawing.Point(3, 163);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(375, 70);
+            this.panel5.TabIndex = 12;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(14, 13);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(36, 48);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 11;
+            this.pictureBox2.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.SlateGray;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Monospac821 BT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(66, 4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(304, 63);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "User";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.pictureBox7);
+            this.panel10.Controls.Add(this.button7);
+            this.panel10.Location = new System.Drawing.Point(3, 513);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(375, 70);
+            this.panel10.TabIndex = 17;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(14, 13);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(36, 48);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 11;
+            this.pictureBox7.TabStop = false;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.SlateGray;
+            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.button7.FlatAppearance.BorderSize = 0;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Monospac821 BT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(66, 4);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(304, 63);
+            this.button7.TabIndex = 10;
+            this.button7.Text = "User";
+            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button7.UseVisualStyleBackColor = false;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.pictureBox4);
+            this.panel7.Controls.Add(this.button4);
+            this.panel7.Location = new System.Drawing.Point(3, 233);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(375, 70);
+            this.panel7.TabIndex = 13;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(14, 13);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(36, 48);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 11;
+            this.pictureBox4.TabStop = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.SlateGray;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Monospac821 BT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(66, 4);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(304, 63);
+            this.button4.TabIndex = 10;
+            this.button4.Text = "User";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.pictureBox8);
+            this.panel11.Controls.Add(this.button8);
+            this.panel11.Location = new System.Drawing.Point(3, 373);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(375, 70);
+            this.panel11.TabIndex = 15;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(14, 13);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(36, 48);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 11;
+            this.pictureBox8.TabStop = false;
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.SlateGray;
+            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.LightSlateGray;
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Monospac821 BT", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.Location = new System.Drawing.Point(66, 4);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(304, 63);
+            this.button8.TabIndex = 10;
+            this.button8.Text = "User";
+            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button8.UseVisualStyleBackColor = false;
+            // 
+            // splitter1
+            // 
+            this.splitter1.Location = new System.Drawing.Point(374, 123);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(10, 675);
+            this.splitter1.TabIndex = 6;
+            this.splitter1.TabStop = false;
+            // 
+            // panelChilden
+            // 
+            this.panelChilden.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelChilden.Location = new System.Drawing.Point(384, 123);
+            this.panelChilden.Name = "panelChilden";
+            this.panelChilden.Size = new System.Drawing.Size(757, 675);
+            this.panelChilden.TabIndex = 8;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -723,24 +724,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.panel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.panel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.panel9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            this.panel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            this.panel11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.panel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.panel11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
