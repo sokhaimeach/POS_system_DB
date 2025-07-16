@@ -51,6 +51,44 @@ namespace Mid_POS_DB.models
             }
         }
 
+        public void SetRoleName(ComboBox cboRoleName)
+        {
+            try
+            {
+                _sql = "select RoleName from tblRole";
+                Database.cmd = new SqlCommand( _sql, Database.con );
+                Database.cmd.ExecuteNonQuery();
+                Database.tbl = new DataTable();
+                Database.dataAdapter = new SqlDataAdapter( Database.cmd );
+                Database.dataAdapter.Fill(Database.tbl);
+                cboRoleName.Items.Clear();
+                foreach (DataRow row in Database.tbl.Rows)
+                {
+                    cboRoleName.Items.Add(row["RoleName"].ToString());
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show($"Error setrolename : {ex.Message}");
+            }
+        }
+
+        public int GetRoleId(string roleName)
+        {
+            int id = 0;
+            _sql = "select * from tblRole where RoleName=@Name";
+            Database.cmd = new SqlCommand(_sql, Database.con );
+            Database.cmd.Parameters.AddWithValue("@Name", roleName);
+            Database.cmd.ExecuteNonQuery();
+            Database.tbl = new DataTable();
+            Database.dataAdapter = new SqlDataAdapter(Database.cmd );
+            Database.dataAdapter.Fill(Database.tbl);
+            if(Database.tbl.Rows.Count > 0)
+            {
+                id = int.Parse(Database.tbl.Rows[0]["Id"].ToString());
+            }
+            return id;
+        }
+
         public override void GetData(DataGridView dg)
         {
             try
@@ -84,7 +122,9 @@ namespace Mid_POS_DB.models
         {
             try
             {
-                SqlTransaction sqlTransaction = Database.con.BeginTransaction();
+
+                SqlTransaction sqlTransaction = null;
+                sqlTransaction = Database.con.BeginTransaction();
                 _sql = "insert into tblUser(UserName, Gender, Password, Email, Status, CreateBy, CreateAt)values(@UserName, @Gender, @Password, @Email, @Status, @CreateBy, GETDATE())";
                 Database.cmd = new SqlCommand(_sql, Database.con, sqlTransaction);
                 Database.cmd.Parameters.AddWithValue("@UserName", Name);
@@ -93,11 +133,11 @@ namespace Mid_POS_DB.models
                 Database.cmd.Parameters.AddWithValue("@Email", Email);
                 Database.cmd.Parameters.AddWithValue("@Status", Status);
                 Database.cmd.Parameters.AddWithValue("@CreateBy", User.UserId);
-                Id = Convert.ToInt32(Database.cmd.ExecuteScalar());
+                this.Id = Convert.ToInt32(Database.cmd.ExecuteScalar());
 
                 _sql = "insert into tblUserRole(UserId, RoleId, CreateBy, CreateAt)values(@UserId, @RoleId, @CreateBy, GETDATE())";
                 Database.cmd = new SqlCommand(_sql, Database.con, sqlTransaction);
-                Database.cmd.Parameters.AddWithValue("@UserId", Id);
+                Database.cmd.Parameters.AddWithValue("@UserId", this.Id);
                 Database.cmd.Parameters.AddWithValue("@RoleId", RoleId);
                 Database.cmd.Parameters.AddWithValue("@CreateBy", User.UserId);
                 Database.cmd.ExecuteNonQuery();

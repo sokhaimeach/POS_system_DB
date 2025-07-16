@@ -21,6 +21,7 @@ namespace Mid_POS_DB.views.user
         private void UserForm_Load(object sender, EventArgs e)
         {
             User user = new User();
+            user.SetRoleName(cboRoleName);
             user.GetData(dgUser);
         }
 
@@ -32,6 +33,10 @@ namespace Mid_POS_DB.views.user
             user.Password = txtPassword.Text;
             user.Gender = cboGender.Text;
             user.Status = rTrue.Checked ? true : false;
+            user.RoleId = user.GetRoleId(cboRoleName.Text.Trim());
+            MessageBox.Show("RoleId"+user.RoleId);
+            user.Create();
+            user.GetData(dgUser);
         }
     }
 }
