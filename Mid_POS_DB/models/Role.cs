@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Mid_POS_DB.models
 {
@@ -17,7 +18,7 @@ namespace Mid_POS_DB.models
 
         public string _sql;
         public int _rowEffected;
-        private DataGridViewRow DGV = null;
+        public DataGridViewRow DGV = null;
 
         public override void GetData(DataGridView dg)
         {
@@ -64,7 +65,6 @@ namespace Mid_POS_DB.models
             }
         }
 
-
         public override void DeleteById(DataGridView dg)
         {
             try
@@ -90,6 +90,32 @@ namespace Mid_POS_DB.models
             }
         }
 
+        public override void Search(DataGridView dg)
+        {
+            try
+            {
+                _sql = "select * from tblRole where RoleName like '%'+@Name+'%'";
+                Database.cmd = new SqlCommand(_sql, Database.con);
+                Database.cmd.Parameters.AddWithValue("@Name", Name);
+                Database.cmd.ExecuteNonQuery();
+                Database.dataAdapter = new SqlDataAdapter(Database.cmd);
+                Database.tbl = new DataTable();
+                Database.dataAdapter.Fill(Database.tbl);
+                dg.Rows.Clear();
+                foreach (DataRow dr in Database.tbl.Rows)
+                {
+                    this.Id = int.Parse(dr["Id"].ToString());
+                    this.Name = dr["RoleName"].ToString();
+                    this.Status = bool.Parse(dr["Status"].ToString());
+                    Object[] row = { this.Id, this.Name, this.Status };
+                    dg.Rows.Add(row);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error Search role: {ex.Message}");
+            }
+        }
 
         public void TransferDataToControl(DataGridView dg, TextBox name, RadioButton btrue, RadioButton bfalse)
         {
@@ -112,7 +138,6 @@ namespace Mid_POS_DB.models
                 MessageBox.Show($"Error transfer data role : {ex.Message}");
             }
         }
-
 
         public override void UpdateById(DataGridView dg)
         {

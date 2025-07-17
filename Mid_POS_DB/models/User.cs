@@ -125,7 +125,7 @@ namespace Mid_POS_DB.models
 
                 SqlTransaction sqlTransaction = null;
                 sqlTransaction = Database.con.BeginTransaction();
-                _sql = "insert into tblUser(UserName, Gender, Password, Email, Status, CreateBy, CreateAt)values(@UserName, @Gender, @Password, @Email, @Status, @CreateBy, GETDATE())";
+                _sql = "insert into tblUser(UserName, Gender, Password, Email, Status, CreateBy, CreateAt)values(@UserName, @Gender, @Password, @Email, @Status, @CreateBy, GETDATE())select SCOPE_IDENTITY()";
                 Database.cmd = new SqlCommand(_sql, Database.con, sqlTransaction);
                 Database.cmd.Parameters.AddWithValue("@UserName", Name);
                 Database.cmd.Parameters.AddWithValue("@Gender", Gender);
@@ -133,11 +133,11 @@ namespace Mid_POS_DB.models
                 Database.cmd.Parameters.AddWithValue("@Email", Email);
                 Database.cmd.Parameters.AddWithValue("@Status", Status);
                 Database.cmd.Parameters.AddWithValue("@CreateBy", User.UserId);
-                this.Id = Convert.ToInt32(Database.cmd.ExecuteScalar());
+                Id = Convert.ToInt32(Database.cmd.ExecuteScalar());
 
                 _sql = "insert into tblUserRole(UserId, RoleId, CreateBy, CreateAt)values(@UserId, @RoleId, @CreateBy, GETDATE())";
                 Database.cmd = new SqlCommand(_sql, Database.con, sqlTransaction);
-                Database.cmd.Parameters.AddWithValue("@UserId", this.Id);
+                Database.cmd.Parameters.AddWithValue("@UserId", Id);
                 Database.cmd.Parameters.AddWithValue("@RoleId", RoleId);
                 Database.cmd.Parameters.AddWithValue("@CreateBy", User.UserId);
                 Database.cmd.ExecuteNonQuery();
@@ -148,6 +148,76 @@ namespace Mid_POS_DB.models
             } catch (Exception ex)
             {
                 MessageBox.Show($"Error create user : {ex.Message}");
+            }
+        }
+
+        public override void DeleteById(DataGridView dg)
+        {
+            try
+            {
+                if (dg.Rows.Count <= 0) return;
+                DGV = dg.SelectedRows[0];
+                Id = int.Parse(DGV.Cells[0].Value.ToString());
+                SqlTransaction sqlTransaction = Database.con.BeginTransaction();
+                var click = MessageBox.Show("Do you want to delete this recod?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (click == DialogResult.No) return;
+
+                _sql = "delete from tblUserRole where UserId=@UserId";
+                Database.cmd = new SqlCommand(_sql, Database.con, sqlTransaction);
+                Database.cmd.Parameters.AddWithValue("@UserId", Id);
+                Database.cmd.ExecuteScalar();
+
+                _sql = "delete from tblUser where Id=@Id";
+                Database.cmd = new SqlCommand(_sql, Database.con, sqlTransaction);
+                Database.cmd.Parameters.AddWithValue("@Id", Id);
+                Database.cmd.ExecuteNonQuery();
+                sqlTransaction.Commit();
+                dg.Rows.Remove(DGV);
+            } catch(Exception ex)
+            {
+                MessageBox.Show($"Error Delete user : {ex.Message}");
+            }
+        }
+
+        public override void Search(DataGridView dg)
+        {
+            try
+            {
+                _sql = "select * from View_User_Role where UserName like '%'+@Name+'%'";
+                Database.cmd = new SqlCommand(_sql, Database.con);
+                Database.cmd.Parameters.AddWithValue("@Name", Name);
+                Database.cmd.ExecuteNonQuery();
+                Database.dataAdapter = new SqlDataAdapter(Database.cmd);
+                Database.tbl = new DataTable();
+                Database.dataAdapter.Fill(Database.tbl);
+                dg.Rows.Clear();
+                foreach (DataRow dr in Database.tbl.Rows)
+                {
+                    Id = int.Parse(dr["Id"].ToString());
+                    Name = dr["UserName"].ToString();
+                    Gender = dr["Gender"].ToString();
+                    Email = dr["Email"].ToString();
+                    Status = bool.Parse(dr["Status"].ToString());
+                    RoleName = dr["RoleName"].ToString();
+
+                    Object[] row = { Id, Name, Gender, Email, Status, RoleName };
+                    dg.Rows.Add(row);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error Search user: {ex.Message}");
+            }
+        }
+
+        public void TransferDataToControl(DataGridView dg, TextBox name, ComboBox gender, TextBox pass, TextBox email, RadioButton rtrue, RadioButton rfalse, ComboBox rolaName)
+        {
+            try
+            {
+
+            } catch (Exception ex)
+            {
+                MessageBox.Show($"Error transfer data user: {ex.Message}");
             }
         }
     }

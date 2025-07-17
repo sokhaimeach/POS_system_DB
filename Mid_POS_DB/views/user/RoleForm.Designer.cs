@@ -313,6 +313,7 @@
             this.txtSearch.TabIndex = 0;
             this.txtSearch.Text = "Search role";
             this.txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
+            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
             this.txtSearch.Leave += new System.EventHandler(this.txtSearch_Leave);
             // 
             // contextMenuStrip1

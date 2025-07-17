@@ -80,5 +80,15 @@ namespace Mid_POS_DB.views.user
             role.UpdateById(dgRole);
             role.GetData(dgRole);
         }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)13)
+            {
+                Role role = new Role();
+                role.Name = txtSearch.Text.Trim();
+                role.Search(dgRole);
+            }
+        }
     }
 }

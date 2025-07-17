@@ -34,9 +34,42 @@ namespace Mid_POS_DB.views.user
             user.Gender = cboGender.Text;
             user.Status = rTrue.Checked ? true : false;
             user.RoleId = user.GetRoleId(cboRoleName.Text.Trim());
-            MessageBox.Show("RoleId"+user.RoleId);
             user.Create();
             user.GetData(dgUser);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            User user = new User();
+            user.DeleteById(dgUser);
+        }
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
+            {
+                User user = new User();
+                user.Name = txtSearch.Text;
+                user.Search(dgUser);
+            }
+        }
+
+        private void txtSearch_Enter(object sender, EventArgs e)
+        {
+            if (txtSearch.Text == "Search User")
+            {
+                txtSearch.Text = string.Empty;
+                txtSearch.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtSearch_Leave(object sender, EventArgs e)
+        {
+            if (txtSearch.Text == string.Empty)
+            {
+                txtSearch.Text = "Search User";
+                txtSearch.ForeColor = Color.DarkGray;
+            }
         }
     }
 }
