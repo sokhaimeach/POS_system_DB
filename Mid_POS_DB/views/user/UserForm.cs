@@ -71,5 +71,11 @@ namespace Mid_POS_DB.views.user
                 txtSearch.ForeColor = Color.DarkGray;
             }
         }
+
+        private void dgUser_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            User user = new User();
+            user.TransferDataToControl(dgUser, txtUserName, cboGender, txtPassword, txtEmail, rTrue, rFalse, cboRoleName);
+        }
     }
 }

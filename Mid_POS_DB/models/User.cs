@@ -214,7 +214,28 @@ namespace Mid_POS_DB.models
         {
             try
             {
-
+                DGV = dg.SelectedRows[0];
+                name.Text = DGV.Cells[1].Value.ToString();
+                gender.Text = DGV.Cells[2].Value.ToString();
+                email.Text = DGV.Cells[3].Value.ToString();
+                if (bool.Parse(DGV.Cells[4].Value.ToString()))
+                {
+                    rtrue.Checked = true;
+                } else
+                {
+                    rfalse.Checked = false;
+                }
+                rolaName.Text = DGV.Cells[5].Value.ToString();
+                _sql = "select Password from tblUser where UserName=@Name";
+                Database.cmd = new SqlCommand( _sql, Database.con );
+                Database.cmd.Parameters.AddWithValue("@Name", name.Text);
+                Database.tbl = new DataTable();
+                Database.dataAdapter = new SqlDataAdapter(Database.cmd);
+                Database.dataAdapter.Fill(Database.tbl);
+                if(Database.tbl.Rows.Count > 0)
+                {
+                    pass.Text = Database.tbl.Rows[0]["Password"].ToString();
+                }
             } catch (Exception ex)
             {
                 MessageBox.Show($"Error transfer data user: {ex.Message}");
