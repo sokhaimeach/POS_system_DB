@@ -49,6 +49,7 @@
     <Compile Include="models\Action.cs" />
     <Compile Include="models\Database.cs" />
     <Compile Include="models\InAction.cs" />
+    <Compile Include="models\Library.cs" />
     <Compile Include="models\Role.cs" />
     <Compile Include="models\User.cs" />
     <Compile Include="views\user\Dashboard.cs">

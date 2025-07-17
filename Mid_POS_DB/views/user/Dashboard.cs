@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Mid_POS_DB.views.user;
+using Mid_POS_DB.models;
 
 namespace Mid_POS_DB.views.user
 {
@@ -148,6 +149,14 @@ namespace Mid_POS_DB.views.user
             UserForm userForm = new UserForm();
             StatusForm.Text = "User";
             OpenChildForm(userForm);
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            if(User.Permission == "Admin")
+            {
+                securityToolStripMenuItem.Enabled = true;
+            }
         }
     }
 }

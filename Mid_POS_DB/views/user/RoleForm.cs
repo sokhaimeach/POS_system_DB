@@ -54,10 +54,13 @@ namespace Mid_POS_DB.views.user
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            if(Library.IsEmptyTextBox(txtRolename)) return;
             Role role = new Role();
             role.Name = txtRolename.Text.Trim();
             role.Status = rTrue.Checked ? true : false;
             role.Create();
+            role.GetData(dgRole);
+            Library.ClearTextBox(txtRolename);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -74,11 +77,13 @@ namespace Mid_POS_DB.views.user
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (Library.IsEmptyTextBox(txtRolename)) return;
             Role role = new Role();
             role.Name= txtRolename.Text.Trim();
             role.Status = rTrue.Checked? true : false;
             role.UpdateById(dgRole);
             role.GetData(dgRole);
+            Library.ClearTextBox(txtRolename);
         }
 
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)

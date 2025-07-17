@@ -49,6 +49,7 @@ namespace Mid_POS_DB.models
         {
             try
             {
+                if (Library.IsCheckDouplicated("tblRole", "RoleName", Name, 0)) return;
                 _sql = "insert into tblRole(RoleName, Status, CreateAt, CreateBy)values(@RoleName, @Status, GETDATE(), @CreateBy)";
                 Database.cmd = new SqlCommand(_sql, Database.con);
                 Database.cmd.Parameters.AddWithValue("@RoleName", this.Name);
@@ -143,9 +144,10 @@ namespace Mid_POS_DB.models
         {
             try
             {
-                if(dg.Rows.Count <= 0) return;
+                if (dg.Rows.Count <= 0) return;
                 DGV = dg.SelectedRows[0];
                 this.Id = int.Parse(DGV.Cells[0].Value.ToString());
+                if (Library.IsCheckDouplicated("tblRole", "RoleName", Name, Id)) return;
                 _sql = "update tblRole set RoleName=@Name, Status=@Status, UpdateAt=GETDATE(), UpdateBy=@UpdateBy where Id=@Id";
                 Database.cmd = new SqlCommand( _sql, Database.con);
                 Database.cmd.Parameters.AddWithValue("@Name", this.Name);

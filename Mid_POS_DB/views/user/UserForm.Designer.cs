@@ -355,6 +355,7 @@
             this.cboGender.Name = "cboGender";
             this.cboGender.Size = new System.Drawing.Size(121, 33);
             this.cboGender.TabIndex = 22;
+            this.cboGender.Text = "Male";
             // 
             // btnDelete
             // 
@@ -378,6 +379,7 @@
             this.btnUpdate.TabIndex = 14;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnCreate
             // 

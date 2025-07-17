@@ -27,6 +27,8 @@ namespace Mid_POS_DB.views.user
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
+            if (Library.IsEmptyTextBox(txtUserName, txtPassword, txtEmail)) return;
+            if (cboRoleName.Text == string.Empty) return;
             User user = new User();
             user.Name = txtUserName.Text;
             user.Email = txtEmail.Text;
@@ -36,6 +38,7 @@ namespace Mid_POS_DB.views.user
             user.RoleId = user.GetRoleId(cboRoleName.Text.Trim());
             user.Create();
             user.GetData(dgUser);
+            Library.ClearTextBox(txtUserName, txtPassword, txtEmail);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -76,6 +79,22 @@ namespace Mid_POS_DB.views.user
         {
             User user = new User();
             user.TransferDataToControl(dgUser, txtUserName, cboGender, txtPassword, txtEmail, rTrue, rFalse, cboRoleName);
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (Library.IsEmptyTextBox(txtUserName, txtPassword, txtEmail)) return;
+            if (cboRoleName.Text == string.Empty) return;
+            User user = new User();
+            user.Name = txtUserName.Text.Trim();
+            user.Gender = cboGender.Text.Trim();
+            user.Password = txtPassword.Text.Trim();
+            user.Email = txtEmail.Text.Trim();
+            user.Status = rTrue.Checked ? true : false;
+            user.RoleId = user.GetRoleId(cboRoleName.Text.Trim());
+            user.UpdateById(dgUser);
+            user.GetData(dgUser);
+            Library.ClearTextBox(txtUserName, txtPassword, txtEmail);
         }
     }
 }
