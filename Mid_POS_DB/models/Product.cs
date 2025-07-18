@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Drawing;
 
 namespace Mid_POS_DB.models
 {
@@ -17,12 +18,14 @@ namespace Mid_POS_DB.models
         public int UnitInStock { get; set; }
         public string Photo { get; set; }
         public int CategoryId { get; set; }
+        public string CategoryName { get; set; }
         public static string PathPhoto { get; set; }
+
         public override void GetData(DataGridView dg)
         {
             try
             {
-                _sql = "select * from tblProduct";
+                _sql = "select * from View_Product_Category";
                 Database.cmd = new SqlCommand(_sql, Database.con);
                 Database.cmd.ExecuteNonQuery();
                 Database.dataAdapter = new SqlDataAdapter(Database.cmd);
@@ -31,14 +34,14 @@ namespace Mid_POS_DB.models
                 dg.Rows.Clear();
                 foreach (DataRow dr in Database.tbl.Rows)
                 {
-                    this.Id = int.Parse(dr["Id"].ToString());
-                    this.Name = dr["Name"].ToString();
-                    //Barcode = dr["Barcode"].ToString();
-                    this.SellPrice = double.Parse(dr["SellPrice"].ToString());
-                    this.UnitInStock = int.Parse(dr["UnitInStock"].ToString());
-                    Photo = dr["Photo"].ToString();
+                    Id = int.Parse(dr["Id"].ToString());
+                    Name = dr["ProductName"].ToString();
+                    Barcode = long.Parse(dr["Barcode"].ToString());
+                    SellPrice = double.Parse(dr["SellPrice"].ToString());
+                    UnitInStock = int.Parse(dr["UnitInStock"].ToString());
+                    CategoryName = dr["CategoryName"].ToString();
                     
-                    Object[] row = { this.Id, this.Name, Barcode, SellPrice, UnitInStock,  };
+                    Object[] row = { Id, Name, Barcode, SellPrice, UnitInStock,  CategoryName};
                     dg.Rows.Add(row);
                 }
             } catch(Exception ex)
@@ -81,11 +84,11 @@ namespace Mid_POS_DB.models
                 if( click == DialogResult.No) return;
 
                 DGV = dg.SelectedRows[0];
-                this.Id = int.Parse(DGV.Cells[0].Value.ToString());
+                Id = int.Parse(DGV.Cells[0].Value.ToString());
 
-                _sql = "delete from tblRole where Id=@Id";
+                _sql = "delete from tblProduct where Id=@Id";
                 Database.cmd = new SqlCommand( _sql, Database.con);
-                Database.cmd.Parameters.AddWithValue("@Id", this.Id);
+                Database.cmd.Parameters.AddWithValue("@Id", Id);
                 _rowEffected = Database.cmd.ExecuteNonQuery();
                 if (_rowEffected > 0)
                 {
@@ -99,9 +102,9 @@ namespace Mid_POS_DB.models
 
         public override void Search(DataGridView dg)
         {
-            try
+            try           
             {
-                _sql = "select * from tblRole where RoleName like '%'+@Name+'%'";
+                _sql = "select * from View_Product_Category where ProductName like '%'+@Name+'%'";
                 Database.cmd = new SqlCommand(_sql, Database.con);
                 Database.cmd.Parameters.AddWithValue("@Name", Name);
                 Database.cmd.ExecuteNonQuery();
@@ -111,10 +114,14 @@ namespace Mid_POS_DB.models
                 dg.Rows.Clear();
                 foreach (DataRow dr in Database.tbl.Rows)
                 {
-                    this.Id = int.Parse(dr["Id"].ToString());
-                    this.Name = dr["RoleName"].ToString();
-                    this.Status = bool.Parse(dr["Status"].ToString());
-                    Object[] row = { this.Id, this.Name, this.Status };
+                    Id = int.Parse(dr["Id"].ToString());
+                    Name = dr["ProductName"].ToString();
+                    Barcode = long.Parse(dr["Barcode"].ToString());
+                    SellPrice = double.Parse(dr["SellPrice"].ToString());
+                    UnitInStock = int.Parse(dr["UnitInStock"].ToString());
+                    CategoryName = dr["CategoryName"].ToString();
+
+                    Object[] row = { Id, Name, Barcode, SellPrice, UnitInStock, CategoryName };
                     dg.Rows.Add(row);
                 }
             }
@@ -124,21 +131,28 @@ namespace Mid_POS_DB.models
             }
         }
 
-        public void TransferDataToControls(DataGridView dg, TextBox name, RadioButton btrue, RadioButton bfalse)
+        public void TransferDataToControls(DataGridView dg, TextBox name, TextBox barcode, TextBox sellprice, ComboBox categoryName, PictureBox pic)
         {
             try
             {
                 if(dg.Rows.Count <= 0) { return; }
                 DGV = dg.SelectedRows[0];
+                Id = int.Parse(DGV.Cells[0].Value.ToString());
                 name.Text = DGV.Cells[1].Value.ToString();
-                if (bool.Parse(DGV.Cells[2].Value.ToString()))
-                {
-                    btrue.Checked = true;
-                }
-                else
-                {
-                    bfalse.Checked = true;
-                }
+                barcode.Text = DGV.Cells[2].Value.ToString();
+                sellprice.Text = DGV.Cells[3].Value.ToString();
+                categoryName.Text = DGV.Cells[5].Value.ToString();
+
+
+                _sql = "select Photo from tblProduct where Id=@Id";
+                Database.cmd = new SqlCommand(_sql, Database.con);
+                Database.cmd.Parameters.AddWithValue("@Id", Id);
+                Database.tbl = new DataTable();
+                Database.dataAdapter = new SqlDataAdapter(Database.cmd);
+                Database.dataAdapter.Fill(Database.tbl);
+                PathPhoto = Database.tbl.Rows[0]["Photo"].ToString();
+                pic.Image = Image.FromFile(PathPhoto);
+
             }
             catch (Exception ex)
             {
@@ -152,16 +166,20 @@ namespace Mid_POS_DB.models
             {
                 if (dg.Rows.Count <= 0) return;
                 DGV = dg.SelectedRows[0];
-                this.Id = int.Parse(DGV.Cells[0].Value.ToString());
-                if (Library.IsCheckDouplicated("tblRole", "RoleName", Name, Id)) return;
-                _sql = "update tblRole set RoleName=@Name, Status=@Status, UpdateAt=GETDATE(), UpdateBy=@UpdateBy where Id=@Id";
+                Id = int.Parse(DGV.Cells[0].Value.ToString());
+                if (Library.IsCheckDouplicated("tblProduct", "Name", Name, Id)) return;
+                if (Library.IsCheckDouplicated("tblProduct", "Barcode", Barcode, Id)) return;
+                _sql = "update tblProduct set Name=@Name, Barcode=@Barcode, SellPrice=@SellPrice, Photo=@Photo, CategoryId=@CategoryId, UpdateAt=GETDATE(), UpdateBy=@UpdateBy where Id=@Id";
                 Database.cmd = new SqlCommand( _sql, Database.con);
-                Database.cmd.Parameters.AddWithValue("@Name", this.Name);
-                Database.cmd.Parameters.AddWithValue("@Status", this.Status);
+                Database.cmd.Parameters.AddWithValue("@Name", Name);
+                Database.cmd.Parameters.AddWithValue("@Barcode", Barcode);
+                Database.cmd.Parameters.AddWithValue("@SellPrice", SellPrice);
+                Database.cmd.Parameters.AddWithValue("@Photo", Photo);
+                Database.cmd.Parameters.AddWithValue("@CategoryId", CategoryId);
                 Database.cmd.Parameters.AddWithValue("@UpdateBy", User.UserId);
-                Database.cmd.Parameters.AddWithValue("@Id", this.Id);
+                Database.cmd.Parameters.AddWithValue("@Id", Id);
                 _rowEffected = Database.cmd.ExecuteNonQuery();
-                if(_rowEffected > 0)
+                if (_rowEffected > 0)
                 {
                     MessageBox.Show("Update successfully");
                 }
