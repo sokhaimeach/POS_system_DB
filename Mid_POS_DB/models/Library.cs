@@ -18,8 +18,8 @@ namespace Mid_POS_DB.models
             int getId = -1;
             try
             {
-                string sql = $"select * from {tblName} where {colName}=@Value";
-                Database.cmd = new SqlCommand(sql, Database.con);
+                _sql = $"select * from {tblName} where {colName}=@Value";
+                Database.cmd = new SqlCommand(_sql, Database.con);
                 Database.cmd.Parameters.AddWithValue("@Value", values);
                 Database.cmd.ExecuteNonQuery();
                 Database.tbl = new DataTable();
@@ -51,7 +51,7 @@ namespace Mid_POS_DB.models
         {
             try
             {
-                _sql = $"select {fillName} from {tblName}";
+                _sql = $"select {fillName} from {tblName} order by Id";
                 Database.cmd = new SqlCommand(_sql, Database.con);
                 Database.cmd.ExecuteNonQuery();
                 Database.tbl = new DataTable();

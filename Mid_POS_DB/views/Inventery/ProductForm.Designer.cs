@@ -32,7 +32,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.btnBrowse = new System.Windows.Forms.Button();
-            this.picProduct = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.cboCategory = new System.Windows.Forms.ComboBox();
@@ -61,8 +60,9 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.picProduct = new System.Windows.Forms.PictureBox();
+            this.addStockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picProduct)).BeginInit();
             this.panel10.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -71,6 +71,8 @@
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgProduct)).BeginInit();
             this.panel5.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picProduct)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -120,17 +122,6 @@
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = false;
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
-            // 
-            // picProduct
-            // 
-            this.picProduct.BackColor = System.Drawing.Color.White;
-            this.picProduct.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picProduct.Location = new System.Drawing.Point(171, 504);
-            this.picProduct.Name = "picProduct";
-            this.picProduct.Size = new System.Drawing.Size(196, 194);
-            this.picProduct.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picProduct.TabIndex = 24;
-            this.picProduct.TabStop = false;
             // 
             // label7
             // 
@@ -353,6 +344,7 @@
             this.Column4,
             this.Column5,
             this.Column6});
+            this.dgProduct.ContextMenuStrip = this.contextMenuStrip1;
             this.dgProduct.GridColor = System.Drawing.Color.Black;
             this.dgProduct.Location = new System.Drawing.Point(18, 132);
             this.dgProduct.Name = "dgProduct";
@@ -436,8 +428,28 @@
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addStockToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(150, 30);
+            // 
+            // picProduct
+            // 
+            this.picProduct.BackColor = System.Drawing.Color.White;
+            this.picProduct.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picProduct.Location = new System.Drawing.Point(171, 504);
+            this.picProduct.Name = "picProduct";
+            this.picProduct.Size = new System.Drawing.Size(196, 194);
+            this.picProduct.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picProduct.TabIndex = 24;
+            this.picProduct.TabStop = false;
+            // 
+            // addStockToolStripMenuItem
+            // 
+            this.addStockToolStripMenuItem.Name = "addStockToolStripMenuItem";
+            this.addStockToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.addStockToolStripMenuItem.Text = "Add Stock";
+            this.addStockToolStripMenuItem.Click += new System.EventHandler(this.addStockToolStripMenuItem_Click);
             // 
             // ProductForm
             // 
@@ -451,7 +463,6 @@
             this.Load += new System.EventHandler(this.ProductForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picProduct)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
@@ -464,6 +475,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgProduct)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picProduct)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -481,7 +494,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.DataGridView dgProduct;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Label label4;
@@ -502,5 +514,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.ToolStripMenuItem addStockToolStripMenuItem;
+        public System.Windows.Forms.DataGridView dgProduct;
     }
 }

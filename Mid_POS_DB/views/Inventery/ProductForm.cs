@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Mid_POS_DB.models;
+using Mid_POS_DB.views.Inventery;
 
 namespace Mid_POS_DB.views.user
 {
@@ -105,6 +106,14 @@ namespace Mid_POS_DB.views.user
             product.GetData(dgProduct);
             Library.ClearTextBox(txtProductName, txtBarcode, txtSellprice);
             picProduct.Image = null;
+        }
+
+        private void addStockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StockForm stockForm = new StockForm();
+            Stock stock = new Stock();
+            stock.TransferDataToControls(dgProduct, stockForm.txtProductId, stockForm.txtProductname);
+            stockForm.ShowDialog();
         }
     }
 }

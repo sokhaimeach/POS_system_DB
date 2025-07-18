@@ -52,12 +52,19 @@
     <Compile Include="models\Library.cs" />
     <Compile Include="models\Product.cs" />
     <Compile Include="models\Role.cs" />
+    <Compile Include="models\Stock.cs" />
     <Compile Include="models\User.cs" />
     <Compile Include="views\Inventery\ProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="views\Inventery\ProductForm.Designer.cs">
       <DependentUpon>ProductForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Inventery\StockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Inventery\StockForm.Designer.cs">
+      <DependentUpon>StockForm.cs</DependentUpon>
     </Compile>
     <Compile Include="views\user\Dashboard.cs">
       <SubType>Form</SubType>
@@ -87,6 +94,9 @@
     </Compile>
     <EmbeddedResource Include="views\Inventery\ProductForm.resx">
       <DependentUpon>ProductForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Inventery\StockForm.resx">
+      <DependentUpon>StockForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\user\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
@@ -126,7 +136,9 @@
   <ItemGroup>
     <None Include="Resources\pic_login_2.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\add_stock.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pic_login_21.jpg" />
   </ItemGroup>

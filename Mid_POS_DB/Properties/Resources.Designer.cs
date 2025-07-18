@@ -63,6 +63,16 @@ namespace Mid_POS_DB.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_stock {
+            get {
+                object obj = ResourceManager.GetObject("add_stock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pic_login_2 {
             get {
                 object obj = ResourceManager.GetObject("pic_login_2", resourceCulture);
