@@ -11,6 +11,7 @@ namespace Mid_POS_DB.models
 {
     internal class Library
     {
+        private static string _sql;
         public static bool IsCheckDouplicated(string tblName, string colName, object values,int id)
         {
             bool check = false;
@@ -44,6 +45,45 @@ namespace Mid_POS_DB.models
                 MessageBox.Show($"Error check douplicated : {ex.Message}");
             }
             return check;
+        }
+
+        public static void SetName(string tblName, string fillName, ComboBox cboRoleName)
+        {
+            try
+            {
+                _sql = $"select {fillName} from {tblName}";
+                Database.cmd = new SqlCommand(_sql, Database.con);
+                Database.cmd.ExecuteNonQuery();
+                Database.tbl = new DataTable();
+                Database.dataAdapter = new SqlDataAdapter(Database.cmd);
+                Database.dataAdapter.Fill(Database.tbl);
+                cboRoleName.Items.Clear();
+                foreach (DataRow row in Database.tbl.Rows)
+                {
+                    cboRoleName.Items.Add(row[$"{fillName}"].ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error setrolename : {ex.Message}");
+            }
+        }
+
+        public static int GetIdByName(string tblName, string fillName, string value)
+        {
+            int id = 0;
+            _sql = $"select * from {tblName} where {fillName}=@Name";
+            Database.cmd = new SqlCommand(_sql, Database.con);
+            Database.cmd.Parameters.AddWithValue("@Name", value);
+            Database.cmd.ExecuteNonQuery();
+            Database.tbl = new DataTable();
+            Database.dataAdapter = new SqlDataAdapter(Database.cmd);
+            Database.dataAdapter.Fill(Database.tbl);
+            if (Database.tbl.Rows.Count > 0)
+            {
+                id = int.Parse(Database.tbl.Rows[0]["Id"].ToString());
+            }
+            return id;
         }
 
         public static bool IsEmptyTextBox(params TextBox[] box)

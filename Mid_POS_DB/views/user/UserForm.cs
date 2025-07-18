@@ -21,7 +21,7 @@ namespace Mid_POS_DB.views.user
         private void UserForm_Load(object sender, EventArgs e)
         {
             User user = new User();
-            user.SetRoleName(cboRoleName);
+            Library.SetName("tblRole", "RoleName",cboRoleName);
             user.GetData(dgUser);
         }
 
@@ -35,7 +35,7 @@ namespace Mid_POS_DB.views.user
             user.Password = txtPassword.Text;
             user.Gender = cboGender.Text;
             user.Status = rTrue.Checked ? true : false;
-            user.RoleId = user.GetRoleId(cboRoleName.Text.Trim());
+            user.RoleId = Library.GetIdByName("tblRole", "RoleName", cboRoleName.Text.Trim());
             user.Create();
             user.GetData(dgUser);
             Library.ClearTextBox(txtUserName, txtPassword, txtEmail);
@@ -91,7 +91,7 @@ namespace Mid_POS_DB.views.user
             user.Password = txtPassword.Text.Trim();
             user.Email = txtEmail.Text.Trim();
             user.Status = rTrue.Checked ? true : false;
-            user.RoleId = user.GetRoleId(cboRoleName.Text.Trim());
+            user.RoleId = Library.GetIdByName("tblRole", "RoleName", cboRoleName.Text.Trim());
             user.UpdateById(dgUser);
             user.GetData(dgUser);
             Library.ClearTextBox(txtUserName, txtPassword, txtEmail);

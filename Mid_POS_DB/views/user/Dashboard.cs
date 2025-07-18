@@ -158,5 +158,12 @@ namespace Mid_POS_DB.views.user
                 securityToolStripMenuItem.Enabled = true;
             }
         }
+
+        private void productToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProductForm productForm = new ProductForm();
+            StatusForm.Text = "Product";
+            OpenChildForm(productForm);
+        }
     }
 }

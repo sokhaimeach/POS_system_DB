@@ -53,44 +53,6 @@ namespace Mid_POS_DB.models
             }
         }
 
-        public void SetRoleName(ComboBox cboRoleName)
-        {
-            try
-            {
-                _sql = "select RoleName from tblRole";
-                Database.cmd = new SqlCommand( _sql, Database.con );
-                Database.cmd.ExecuteNonQuery();
-                Database.tbl = new DataTable();
-                Database.dataAdapter = new SqlDataAdapter( Database.cmd );
-                Database.dataAdapter.Fill(Database.tbl);
-                cboRoleName.Items.Clear();
-                foreach (DataRow row in Database.tbl.Rows)
-                {
-                    cboRoleName.Items.Add(row["RoleName"].ToString());
-                }
-            } catch (Exception ex)
-            {
-                MessageBox.Show($"Error setrolename : {ex.Message}");
-            }
-        }
-
-        public int GetRoleId(string roleName)
-        {
-            int id = 0;
-            _sql = "select * from tblRole where RoleName=@Name";
-            Database.cmd = new SqlCommand(_sql, Database.con );
-            Database.cmd.Parameters.AddWithValue("@Name", roleName);
-            Database.cmd.ExecuteNonQuery();
-            Database.tbl = new DataTable();
-            Database.dataAdapter = new SqlDataAdapter(Database.cmd );
-            Database.dataAdapter.Fill(Database.tbl);
-            if(Database.tbl.Rows.Count > 0)
-            {
-                id = int.Parse(Database.tbl.Rows[0]["Id"].ToString());
-            }
-            return id;
-        }
-
         public override void GetData(DataGridView dg)
         {
             try

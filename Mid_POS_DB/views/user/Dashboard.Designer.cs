@@ -86,6 +86,8 @@
             this.button8 = new System.Windows.Forms.Button();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.panelChilden = new System.Windows.Forms.Panel();
+            this.inventeryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -118,7 +120,8 @@
             this.menuStrip.Font = new System.Drawing.Font("Monospac821 BT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenu,
-            this.securityToolStripMenuItem});
+            this.securityToolStripMenuItem,
+            this.inventeryToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(1141, 30);
@@ -698,6 +701,21 @@
             this.panelChilden.Size = new System.Drawing.Size(757, 675);
             this.panelChilden.TabIndex = 8;
             // 
+            // inventeryToolStripMenuItem
+            // 
+            this.inventeryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.productToolStripMenuItem});
+            this.inventeryToolStripMenuItem.Name = "inventeryToolStripMenuItem";
+            this.inventeryToolStripMenuItem.Size = new System.Drawing.Size(121, 26);
+            this.inventeryToolStripMenuItem.Text = "Inventery";
+            // 
+            // productToolStripMenuItem
+            // 
+            this.productToolStripMenuItem.Name = "productToolStripMenuItem";
+            this.productToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.productToolStripMenuItem.Text = "Product";
+            this.productToolStripMenuItem.Click += new System.EventHandler(this.productToolStripMenuItem_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -807,6 +825,8 @@
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.ToolStripMenuItem inventeryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem productToolStripMenuItem;
     }
 }
 
