@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Mid_POS_DB.views.user;
 using Mid_POS_DB.models;
+using Mid_POS_DB.views.Inventery;
+using Mid_POS_DB.views.sale;
 
 namespace Mid_POS_DB.views.user
 {
@@ -156,6 +158,8 @@ namespace Mid_POS_DB.views.user
             if(User.Permission == "Admin")
             {
                 securityToolStripMenuItem.Enabled = true;
+                btnUser.Enabled = true;
+                btnRole.Enabled = true;
             }
         }
 
@@ -164,6 +168,61 @@ namespace Mid_POS_DB.views.user
             ProductForm productForm = new ProductForm();
             StatusForm.Text = "Product";
             OpenChildForm(productForm);
+        }
+
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+            if (!securityToolStripMenuItem.Enabled) {
+                MessageBox.Show($"You don't have permission, please change you role");
+                return;
+            }
+            userManagementToolStripMenuItem_Click((object) sender, e);
+        }
+
+        private void btnRole_Click(object sender, EventArgs e)
+        {
+            roleManagementToolStripMenuItem_Click((object) sender, e);
+        }
+
+        private void btnProduct_Click(object sender, EventArgs e)
+        {
+            productToolStripMenuItem_Click((object) sender, e);
+        }
+
+        private void categoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CategoryForm categoryForm = new CategoryForm();
+            StatusForm.Text = "Category";
+            OpenChildForm(categoryForm);
+        }
+
+        private void supplierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SupplierForm supplierForm = new SupplierForm();
+            StatusForm.Text = "Supplier";
+            OpenChildForm(supplierForm);
+        }
+
+        private void customerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CustomerForm customerForm = new CustomerForm();
+            StatusForm.Text = "Customer";
+            OpenChildForm(customerForm);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            categoryToolStripMenuItem_Click(sender, e);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            supplierToolStripMenuItem_Click(sender, e);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            customerToolStripMenuItem_Click(sender, e);
         }
     }
 }

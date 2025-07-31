@@ -47,13 +47,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="models\Action.cs" />
+    <Compile Include="models\Category.cs" />
+    <Compile Include="models\Customer.cs" />
     <Compile Include="models\Database.cs" />
     <Compile Include="models\InAction.cs" />
     <Compile Include="models\Library.cs" />
     <Compile Include="models\Product.cs" />
     <Compile Include="models\Role.cs" />
     <Compile Include="models\Stock.cs" />
+    <Compile Include="models\Supplier.cs" />
     <Compile Include="models\User.cs" />
+    <Compile Include="views\Inventery\CategoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Inventery\CategoryForm.Designer.cs">
+      <DependentUpon>CategoryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\Inventery\ProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +74,18 @@
     </Compile>
     <Compile Include="views\Inventery\StockForm.Designer.cs">
       <DependentUpon>StockForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\Inventery\SupplierForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Inventery\SupplierForm.Designer.cs">
+      <DependentUpon>SupplierForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="views\sale\CustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\sale\CustomerForm.Designer.cs">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="views\user\Dashboard.cs">
       <SubType>Form</SubType>
@@ -92,11 +113,20 @@
     <Compile Include="views\user\UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="views\Inventery\CategoryForm.resx">
+      <DependentUpon>CategoryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\Inventery\ProductForm.resx">
       <DependentUpon>ProductForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\Inventery\StockForm.resx">
       <DependentUpon>StockForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Inventery\SupplierForm.resx">
+      <DependentUpon>SupplierForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\sale\CustomerForm.resx">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\user\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>

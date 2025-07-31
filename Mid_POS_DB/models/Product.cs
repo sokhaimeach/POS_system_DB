@@ -79,17 +79,24 @@ namespace Mid_POS_DB.models
         {
             try
             {
-                if(dg.Rows.Count <= 0) return;
+                SqlTransaction sqlTransaction = Database.con.BeginTransaction();
+                if (dg.Rows.Count <= 0) return;
                 var click = MessageBox.Show("Do you want to delete this record?","Delete",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if( click == DialogResult.No) return;
 
                 DGV = dg.SelectedRows[0];
                 Id = int.Parse(DGV.Cells[0].Value.ToString());
 
+                _sql = "delete from tblAddStock where ProductId=@ProductId";
+                Database.cmd = new SqlCommand(_sql, Database.con, sqlTransaction);
+                Database.cmd.Parameters.AddWithValue("@ProductId", Id);
+                Database.cmd.ExecuteScalar();
+
                 _sql = "delete from tblProduct where Id=@Id";
-                Database.cmd = new SqlCommand( _sql, Database.con);
+                Database.cmd = new SqlCommand( _sql, Database.con, sqlTransaction);
                 Database.cmd.Parameters.AddWithValue("@Id", Id);
                 _rowEffected = Database.cmd.ExecuteNonQuery();
+                sqlTransaction.Commit();
                 if (_rowEffected > 0)
                 {
                     dg.Rows.Remove(this.DGV);
