@@ -79,11 +79,11 @@ namespace Mid_POS_DB.models
         {
             try
             {
-                SqlTransaction sqlTransaction = Database.con.BeginTransaction();
                 if (dg.Rows.Count <= 0) return;
                 var click = MessageBox.Show("Do you want to delete this record?","Delete",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if( click == DialogResult.No) return;
 
+                SqlTransaction sqlTransaction = Database.con.BeginTransaction();
                 DGV = dg.SelectedRows[0];
                 Id = int.Parse(DGV.Cells[0].Value.ToString());
 

@@ -46,6 +46,7 @@ namespace Mid_POS_DB.models
             try
             {
                 if (Library.IsCheckDouplicated("tblSupplier", "Name", Name, 0)) return;
+                if (Library.IsCheckDouplicated("tblSupplier", "Tel", Tel, 0)) return;
                 _sql = "insert into tblSupplier(Name, Tel, Address, CreateAt, CreateBy)values(@Name, @Tel, @Address, GETDATE(), @CreateBy)";
                 Database.cmd = new SqlCommand(_sql, Database.con);
                 Database.cmd.Parameters.AddWithValue("@Name", this.Name);
@@ -142,6 +143,7 @@ namespace Mid_POS_DB.models
                 DGV = dg.SelectedRows[0];
                 this.Id = int.Parse(DGV.Cells[0].Value.ToString());
                 if (Library.IsCheckDouplicated("tblSupplier", "Name", Name, Id)) return;
+                if (Library.IsCheckDouplicated("tblSupplier", "Tel", Tel, 0)) return;
                 _sql = "update tblSupplier set Name=@Name, Tel=@Tel, Address=@Address, UpdateAt=GETDATE(), UpdateBy=@UpdateBy where Id=@Id";
                 Database.cmd = new SqlCommand(_sql, Database.con);
                 Database.cmd.Parameters.AddWithValue("@Name", this.Name);

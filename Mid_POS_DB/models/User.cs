@@ -32,7 +32,8 @@ namespace Mid_POS_DB.models
                 Database.tbl = new DataTable();
                 Database.dataAdapter = new SqlDataAdapter(Database.cmd);
                 Database.dataAdapter.Fill(Database.tbl);
-                if (Database.tbl.Rows.Count > 0)
+
+                if (Database.tbl.Rows.Count > 0 && bool.Parse(Database.tbl.Rows[0]["Status"].ToString()))
                 {
                     User.UserId = int.Parse(Database.tbl.Rows[0]["Id"].ToString());
                     Permission = Database.tbl.Rows[0]["RoleName"].ToString();
@@ -44,7 +45,7 @@ namespace Mid_POS_DB.models
                 }
                 else
                 {
-                    MessageBox.Show("Password or Usernam is invalid, please try again", "LogIn", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Password or Username is invalid, please try again", "LogIn", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
@@ -122,10 +123,10 @@ namespace Mid_POS_DB.models
                 if (dg.Rows.Count <= 0) return;
                 DGV = dg.SelectedRows[0];
                 Id = int.Parse(DGV.Cells[0].Value.ToString());
-                SqlTransaction sqlTransaction = Database.con.BeginTransaction();
                 var click = MessageBox.Show("Do you want to delete this recod?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (click == DialogResult.No) return;
 
+                SqlTransaction sqlTransaction = Database.con.BeginTransaction();
                 _sql = "delete from tblUserRole where UserId=@UserId";
                 Database.cmd = new SqlCommand(_sql, Database.con, sqlTransaction);
                 Database.cmd.Parameters.AddWithValue("@UserId", Id);
