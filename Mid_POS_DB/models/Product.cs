@@ -195,5 +195,26 @@ namespace Mid_POS_DB.models
                 MessageBox.Show($"Error update data role : {ex.Message}");
             }
         }
+
+        public void AlertStock(DataGridView dg)
+        {
+            try
+            {
+                _sql = "select * from tblProduct where UnitInStock <= 10;";
+                Database.cmd = new SqlCommand(_sql, Database.con);
+                Database.cmd.ExecuteNonQuery();
+                Database.dataAdapter = new SqlDataAdapter(Database.cmd);
+                Database.tbl = new DataTable();
+                Database.dataAdapter.Fill(Database.tbl);
+                if (Database.tbl.Rows.Count > 0)
+                {
+                    dg.DataSource = Database.tbl;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error checking stock: {ex.Message}");
+            }
+        }
     }
 }

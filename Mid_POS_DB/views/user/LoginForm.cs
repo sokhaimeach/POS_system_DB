@@ -25,5 +25,36 @@ namespace Mid_POS_DB
             user.Password = txtPassword.Text;
             user.Login(this);
         }
+
+        private void txtUsername_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)13)
+            {
+                if(txtUsername.Text == String.Empty)
+                {
+                    txtUsername.Focus();
+                } else
+                {
+                    txtPassword.Focus();
+                }
+            }
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)13)
+            {
+                if(txtPassword.Text == String.Empty)
+                {
+                    txtPassword.Focus();
+                } else if (txtUsername.Text == String.Empty)
+                {
+                    txtUsername.Focus();
+                } else
+                {
+                    btnLogin_Click(sender, e);
+                }
+            }
+        }
     }
 }

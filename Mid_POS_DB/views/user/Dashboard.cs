@@ -11,6 +11,7 @@ using Mid_POS_DB.views.user;
 using Mid_POS_DB.models;
 using Mid_POS_DB.views.Inventery;
 using Mid_POS_DB.views.sale;
+using System.Data.SqlClient;
 
 namespace Mid_POS_DB.views.user
 {
@@ -155,6 +156,17 @@ namespace Mid_POS_DB.views.user
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
+            string _sql = "select * from tblProduct where UnitInStock <= 10;";
+            Database.cmd = new SqlCommand(_sql, Database.con);
+            Database.cmd.ExecuteNonQuery();
+            Database.dataAdapter = new SqlDataAdapter(Database.cmd);
+            Database.tbl = new DataTable();
+            Database.dataAdapter.Fill(Database.tbl);
+            if (Database.tbl.Rows.Count > 0)
+            {
+                AlertStockForm alertStockForm = new AlertStockForm();
+                alertStockForm.ShowDialog();
+            }
             if(User.Permission == "Admin")
             {
                 securityToolStripMenuItem.Enabled = true;
@@ -223,6 +235,18 @@ namespace Mid_POS_DB.views.user
         private void button6_Click(object sender, EventArgs e)
         {
             customerToolStripMenuItem_Click(sender, e);
+        }
+
+        private void saleToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            SaleForm saleForm = new SaleForm();
+            StatusForm.Text = "Sale";
+            OpenChildForm(saleForm);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            saleToolStripMenuItem1_Click(sender, e);
         }
     }
 }
